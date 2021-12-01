@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+header div {
+    padding: 5px;
+}
+
+.header-right {
+    margin-left: auto;
+}
+
+.hide {
+    display: none;
+}
