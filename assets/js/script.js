@@ -8,10 +8,6 @@ var timer = document.getElementById("start-time")
 var submitBtn = document.getElementById("submit-btn")
 var questionScreen = document.getElementById("question-screen");
 var endScreen = document.getElementById("end-screen")
-var buttonA = document.getElementById("a");
-var buttonB = document.getElementById("b");
-var buttonC = document.getElementById("c");
-var buttonD = document.getElementById("d");
 var choicesEl = document.getElementById("choices");
 var showScore = document.getElementById("final-score")
 
@@ -131,16 +127,14 @@ function answer(event) {
 
    if (currentQuestionIndex >= questions.length) {
        timeUp();
-       createDiv.textContent = "Good job!" + " " + "you got " + score + "/" + questions.length + " correct!";
+       createDiv.textContent = "Good job!" + " " + "You got " + score + "/" + questions.length + " correct!";
    } else {
        getQuestions();
    }
    questionScreen.appendChild(createDiv);
 }
+
 // Move on to the next question
-
-
-
 var finalQuestionIndex = questions.length;
 
 
@@ -160,8 +154,8 @@ function timeUp() {
     currentTime.innerHTML = "";
 
     // Create H1 
-    var createH1ElEl = document.createElement("h1");
-    createH1ElEl.setAttribute("id", "createH1El");
+    var createH1El = document.createElement("h1");
+    createH1El.setAttribute("id", "createH1El");
     createH1El.textContent = "All Done!"
 
     questionScreen.appendChild(createH1El);
@@ -180,17 +174,29 @@ function timeUp() {
         questionScreen.appendChild(createP2);
     }
 
-    var createLabelEl
+    var createLabelEl = document.createElement("label");
+    createLabelEl.setAttribute("id", "createLablelEl");
+    createLabelEl.textContent = "Enter your initials: ";
+
+    questionScreen.appendChild(createLabelEl);
+
+    var createInputEl = document.createElement("input");
+    createInputEl.setAttribute("type", "text");
+    createInputEl.setAttribute("id", "intials");
+    createInputEl.textContent = "";
+
+    questionScreen.appendChild(createInputEl);
+
+    var createSumbitEl = document.createElement("submit");
+    createSumbitEl.setAttribute("type", "sumbit");
+    createSumbitEl.setAttribute("id", "Sumbit");
+
+    questionScreen.appendChild(createSumbitEl);
 }
 
 
-
+timer.onclick = startQuiz;
 
 //High score information
 
-
-
-
-
 //eventlistener to start the quiz when the start button is clicked
-timer.onclick = startQuiz;
