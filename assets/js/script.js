@@ -121,9 +121,26 @@ function answer(event) {
     if (status.textContent == questions[currentQuestionIndex].answer) {
         score + 10;
         createDiv.textContent = "Correct! The answer is " + questions[currentQuestionIndex].answer;
-     }
+    }
+   } else {
+       secondsLeft = secondsLeft - penalty;
+       createDiv.textContent = "Wrong! The correct answer is: " + questions[currentQuestionIndex].answer; 
    }
+
+   currentQuestionIndex++;
+
+   if (currentQuestionIndex >= questions.length) {
+       timeUp();
+       createDiv.textContent = "Good job!" + " " + "you got " + score + "/" + questions.length + " correct!";
+   } else {
+       getQuestions();
+   }
+   questionScreen.appendChild(createDiv);
 }
+// Move on to the next question
+
+
+
 var finalQuestionIndex = questions.length;
 
 
@@ -143,24 +160,33 @@ function timeUp() {
     currentTime.innerHTML = "";
 
     // Create H1 
-    var createH1 = document.createElement("h1");
-    createH1.setAttribute("id", "createH1");
-    createH1.textContent = "All Done!"
+    var createH1ElEl = document.createElement("h1");
+    createH1ElEl.setAttribute("id", "createH1El");
+    createH1El.textContent = "All Done!"
 
-    questionScreen.appendChild(createH1);
+    questionScreen.appendChild(createH1El);
 
-    var createParagraph = document.createElement("p");
-    createParagraph.setAttribute("id", "createParagraph");
+    var createParagraphEl = document.createElement("p");
+    createParagraphEl.setAttribute("id", "createParagraphEl");
 
-    questionScreen.appendChild(createParagraph);
+    questionScreen.appendChild(createParagraphEl);
 
-    // Create
+    if (secondsLeft >= 0) {
+        var timeRemaining = secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        createParagraphEl.textContent = "Your final score is: " + timeRemaining;
+
+        questionScreen.appendChild(createP2);
+    }
+
+    var createLabelEl
 }
 
 
 
 
-//Hish score stuff
+//High score information
 
 
 

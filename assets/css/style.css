@@ -48,3 +48,7 @@ a {
     color: cornsilk;
     text-decoration: none;
 }
+
+.question-screen {
+    align-items: center;
+}
