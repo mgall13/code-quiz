@@ -1,17 +1,50 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
 header {
     display: flex;
     flex-direction: row;
-    padding: 5px;
+    padding: 15px;
+    background-color: blueviolet; 
+
 }
 
 header div {
     padding: 5px;
+    color: cornsilk;
+    text-decoration: none;
 }
 
 .header-right {
     margin-left: auto;
+    color: cornsilk;
 }
 
 .hide {
     display: none;
+}
+
+h1 {
+    text-align:center;
+}  
+
+p {
+    text-align:center;
+
+}
+
+button #start-time {
+    text-align:center;
+}
+
+.start-quiz-btn {
+    text-align:center;
+}
+ 
+a {
+    color: cornsilk;
+    text-decoration: none;
 }
